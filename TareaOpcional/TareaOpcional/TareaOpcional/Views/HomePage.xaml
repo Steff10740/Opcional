@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+          
+             x:Class="TareaOpc.Views.HomePage">
+    
+    <ScrollView BackgroundColor="White" VerticalScrollBarVisibility="Always" HorizontalScrollBarVisibility="Always">
+        <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" Margin="0,-21,0,0">
+
+            <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Source="Banner" Aspect="AspectFill" HeightRequest="280"/>
+            <Label Grid.Row="0" Grid.Column="0" VerticalOptions="End" TextColor="White" Padding="20,0,0,5" FontSize="28" Text="Rest and Relax"/>
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Text="30 mins"  FontSize="20" FontAttributes="Bold" TextColor="#adadad" Padding="20,0,20,20"/>
+            <Label Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" Text="New Music"  FontSize="20" FontAttributes="Bold" TextColor="#adadad" Padding="20,0,20,20"/>
+            <StackLayout  Grid.Row="5" Grid.Column="1" Padding="0,0,20,0" Orientation="Horizontal" VerticalOptions="Start" HorizontalOptions="End">
+                <Label TextColor="Gray" Text="View All"/>
+            </StackLayout>
+
+            <CollectionView Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"
+                                HorizontalScrollBarVisibility="Always" 
+                                Margin="20,0,20,15" 
+                                ItemsSource="{Binding music}"
+                                VerticalOptions="StartAndExpand"
+                                ItemsLayout="HorizontalList"
+                                HeightRequest="235">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Margin="8,0">
+
+                            <ImageButton Source="{Binding MusicPicture}" 
+                                         HeightRequest="225" WidthRequest="145" Aspect="Fill" x:Name="Music01"
+                                          Clicked="Music01_Clicked"/>
+                            
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
